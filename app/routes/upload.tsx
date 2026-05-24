@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, type FormEvent } from 'react'
 import FileUploader from '~/components/FileUploader';
 import Navbar from '~/components/Navbar'
 
@@ -11,7 +11,19 @@ const Upload = () => {
     setFile(file);
   }
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {}
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    
+    const form = e.currentTarget.closest('form');
+    if(!form) return;
+    const formData = new FormData(form);
+
+    const companyName = formData.get('company-name');
+    const jobTitle = formData.get('job-title');
+    const jobDescription = formData.get('job-description');
+
+    console.log({companyName, jobTitle, jobDescription, file})
+  }
 
 
   return (
