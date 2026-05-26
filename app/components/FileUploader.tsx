@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import { useDropzone } from "react-dropzone"
 import { formatSize } from "~/lib/utils";
 
@@ -24,7 +24,13 @@ const FileUploader = ({ onFileSelect }: FileUploaderProps) => {
 
 const file = acceptedFiles[0] || null;
 
+////// enable removal of uploaded file //////
+const [hidden, setHidden] = useState(false);
 
+useEffect(() => {
+  if (file) setHidden(false);
+}, [file]);
+/////////////////////////////////////////////
 
   return (
     <div className="w-full gradient-border">
@@ -33,7 +39,7 @@ const file = acceptedFiles[0] || null;
 
             <div className="space-y-4 cursor-pointer">
                 
-                {file ? (
+                {file && !hidden ? (
                     <div className="uploader-selected-file" onClick={(e) => e.stopPropagation()}>
                     <img src="/images/pdf.png" alt="pdf" className="size-10" />
                         <div className="flex items-center space-x-3">
@@ -47,9 +53,16 @@ const file = acceptedFiles[0] || null;
                                 </p>
                             </div>
                         </div>
-                        <button className="p-2 cursor-pointer" onClick={(e) => {
-                            onFileSelect?.(null)
-                        }}>
+                        <button
+                            className="p-2 cursor-pointer"
+                            onClick={(e) => {
+
+                                // enable removal of uploaded file
+                                e.stopPropagation();
+                                setHidden(true);
+                                onFileSelect?.(null);
+                            }}
+                            >
                             <img src="/icons/cross.svg" alt="remove" className="w-4 h-4" />
                         </button>
                     </div>
