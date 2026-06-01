@@ -71,7 +71,7 @@ const CategoryContent = ({
                     alt="score"
                     className="size-5"
                 />
-                <p className="text-xl text-gray-500 ">{tip.tip}</p>
+                <p className="text-l text-gray-500 ">{tip.tip}</p>
               </div>
           ))}
         </div>
@@ -96,7 +96,7 @@ const CategoryContent = ({
                       alt="score"
                       className="size-5"
                   />
-                  <p className="text-xl font-semibold">{tip.tip}</p>
+                  <p className="text-l font-semibold">{tip.tip}</p>
                 </div>
                 <p>{tip.explanation}</p>
               </div>
