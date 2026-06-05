@@ -26,13 +26,12 @@ const ResumeCard = ({ resume, onDelete }: ResumeCardProps) => {
 
   return (
     <div className="resume-card animate-in fade-in duration-1000 relative rounded-xl">
-
       {/* Delete button */}
       <button
         onClick={(e) => {
-            e.stopPropagation();
-            e.preventDefault();
-            setShowConfirm(true);
+          e.stopPropagation();
+          e.preventDefault();
+          setShowConfirm(true);
         }}
         className="
             absolute top-0 right-0 z-20
@@ -42,58 +41,56 @@ const ResumeCard = ({ resume, onDelete }: ResumeCardProps) => {
             rounded-tr-xl rounded-bl-md
             shadow-sm
         "
-        >
+      >
         ✕
-        </button>
+      </button>
 
       {/* Confirmation Modal */}
       {showConfirm && (
         <div
-            className="absolute inset-0 z-30 bg-black/40 backdrop-blur-sm 
+          className="absolute inset-0 z-30 bg-black/40 backdrop-blur-sm 
                     rounded-inherit pointer-events-auto flex items-center justify-center"
-            style={{ borderRadius: "inherit" }}
+          style={{ borderRadius: "inherit" }}
         >
-            <div
-                className="bg-white shadow-lg p-5 w-64 text-center"
-                style={{ borderRadius: "inherit" }}
-                >
-                <p className="font-semibold mb-4">Delete this resume?</p>
+          <div
+            className="bg-white shadow-lg p-5 w-64 text-center"
+            style={{ borderRadius: "inherit" }}
+          >
+            <p className="font-semibold mb-4">Delete this resume?</p>
 
-                <div className="flex justify-center gap-3">
-                    <button
-                    onClick={() => setShowConfirm(false)}
-                    className="px-3 py-1 rounded-md bg-gray-200 text-gray-700 border border-gray-300 hover:bg-gray-300 hover:text-gray-900 transition-colors"
-                    >
-                    Cancel
-                    </button>
+            <div className="flex justify-center gap-3">
+              <button
+                onClick={() => setShowConfirm(false)}
+                className="px-3 py-1 rounded-md bg-gray-200 text-gray-700 border border-gray-300 hover:bg-gray-300 hover:text-gray-900 transition-colors"
+              >
+                Cancel
+              </button>
 
-                    <button
-                    onClick={() => {
-                        setShowConfirm(false);
-                        onDelete();
-                    }}
-                    className="px-3 py-1 rounded-md bg-red-600 text-white hover:bg-red-700 transition-colors"
-                    >
-                    Delete
-                    </button>
-                </div>
+              <button
+                onClick={() => {
+                  setShowConfirm(false);
+                  onDelete();
+                }}
+                className="px-3 py-1 rounded-md bg-red-600 text-white hover:bg-red-700 transition-colors"
+              >
+                Delete
+              </button>
             </div>
+          </div>
         </div>
-        )}
+      )}
 
       {/* Original Card Content (unchanged) */}
       <Link to={`/resume/${id}`} className="block">
         <div className="resume-card-header">
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-0 max-sm:gap-0 max-sm:justify-center">
             {companyName && (
               <h2 className="!text-black font-bold break-words">
                 {companyName}
               </h2>
             )}
             {jobTitle && (
-              <h3 className="text-lg break-words text-gray-500">
-                {jobTitle}
-              </h3>
+              <h3 className="text-lg break-words text-gray-500">{jobTitle}</h3>
             )}
             {!companyName && !jobTitle && (
               <h2 className="!text-black font-bold">Resume</h2>
@@ -101,8 +98,7 @@ const ResumeCard = ({ resume, onDelete }: ResumeCardProps) => {
           </div>
 
           {/* <div className="flex-shrink-0 mr-2"> */}
-          <div className="flex-shrink-0">
-
+          <div className="flex-shrink-0 max-sm:scale-80 max-sm:2 lg:mr-2">
             <ScoreCircle score={feedback.overallScore} />
           </div>
         </div>
