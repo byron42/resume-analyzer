@@ -67,3 +67,9 @@ interface AIResponse {
   }[];
   via_ai_chat_service: boolean;
 }
+
+declare module "@puter/sdk" {
+  interface KV {
+    del(key: string): Promise<any>;
+  }
+}
