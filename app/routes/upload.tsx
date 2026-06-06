@@ -81,7 +81,7 @@ const Upload = () => {
 
 
   return (
-    <main className="bg-[url('/images/bg-main.svg')] bg-cover">
+    <main className="bg-soft-pastel min-h-screen">
         <Navbar />
 
         <section className="main-section">
@@ -93,7 +93,7 @@ const Upload = () => {
                         <img src="/images/resume-scan.gif" className="w-full" />
                     </>
                 ) : (
-                    <h2>Drop your resume fo an ATS score and improvement tips</h2>
+                    <h2>Drop your resume for an ATS score and improvement tips</h2>
                 )}
                 {!isProcessing && (
                     <form id="upload-form" onSubmit={handleSubmit} className="flex flex-col gap-4 mt-8">

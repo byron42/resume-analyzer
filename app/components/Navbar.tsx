@@ -6,7 +6,7 @@ const Navbar = () => {
       <Link to="/" className="flex-shrink min-w-0">
         <p
           className="
-            font-bold text-gradient
+            font-bold
             text-2xl
             max-sm:text-[calc(1.2rem+0.4vw)]
             leading-tight
