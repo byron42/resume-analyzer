@@ -85,7 +85,7 @@ const Upload = () => {
         <Navbar />
 
         <section className="main-section">
-            <div className="page-heading py-16">
+            <div className="page-heading">
                 <h1>Smart feedback for your dream job</h1>
                 {isProcessing ? (
                     <>
@@ -93,10 +93,10 @@ const Upload = () => {
                         <img src="/images/resume-scan.gif" className="w-full" />
                     </>
                 ) : (
-                    <h2>Drop your resume for an ATS score and improvement tips</h2>
+                    <h2 className="pb-10">Drop your resume for an ATS score and improvement tips</h2>
                 )}
                 {!isProcessing && (
-                    <form id="upload-form" onSubmit={handleSubmit} className="flex flex-col gap-4 mt-8">
+                    <form id="upload-form" onSubmit={handleSubmit} className="flex flex-col gap-4 mt-8 max-w-[1000px]">
                         <div className="form-div">
                             <label htmlFor="company-name">Company Name</label>
                             <input type="text" name="company-name" placeholder="Company Name" id="company-name" />

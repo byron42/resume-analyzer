@@ -56,8 +56,8 @@ export default function Home() {
       <Navbar />
 
       <section className="main-section">
-        <div className="page-heading py-16">
-          <h1>Track Your Applications & Resume Ratings</h1>
+        <div className="page-heading">
+          <h1 className="head-text-calc">Track Your Applications & Resume Ratings</h1>
 
           {!loadingResumes && resumes.length === 0 ? (
             <h2>No resumes found. Upload your first resume to get feedback.</h2>
