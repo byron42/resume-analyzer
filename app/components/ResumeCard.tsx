@@ -85,7 +85,7 @@ const ResumeCard = ({ resume, onDelete }: ResumeCardProps) => {
         <div className="resume-card-header">
           <div className="flex flex-col gap-0 max-sm:gap-0 max-sm:justify-center">
             {companyName && (
-              <h2 className="!text-black font-bold break-words">
+              <h2 className="!text-neutral-700 font-semibold break-words">
                 {companyName}
               </h2>
             )}
